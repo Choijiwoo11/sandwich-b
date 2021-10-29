@@ -1,0 +1,50 @@
+#id_author{
+    width: 15%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 82px;
+    box-sizing: border-box;
+}
+
+#id_post_title{
+    width: 40%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 98px;
+    box-sizing: border-box;
+}
+
+#id_post_contents{
+    width: 40%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 98px;
+    box-sizing: border-box;
+}
+
+#id_board_no{
+    width: 15%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 47px;
+    box-sizing: border-box;
+    background:#FFFFFF;
+}
+
+.btn-sm{
+    background:#F15F5F;
+    color:#fff;
+    font-size: 30px;
+    border: none;
+    width: 80px;
+    height: 45px;
+}
+
+.pp{
+    font-size:25px;
+    font-weight:bold;
+}

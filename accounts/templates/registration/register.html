@@ -1,0 +1,28 @@
+{% extends 'sandwich/index.html' %}
+<head>
+    {% load static %}
+    {% block title %}- Registration{% endblock %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    {% endblock %}
+</head>
+{% block content %}
+<form action="" method="post">
+    <fieldset>
+
+    <h3> 회원가입</h3><br/>
+   <legend>회원가입</legend>
+
+
+<div class="signup_box">
+<!--    <div class="alert alert-info">Please enter your account informations.</div>-->
+        <form action="" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <button type="submit" class="btnLogin">완료</button>
+        </form>
+    </div>
+</div>
+</fieldset>
+</form>
+{% endblock %}

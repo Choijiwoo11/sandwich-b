@@ -1,0 +1,19 @@
+{% extends 'sandwich/index.html' %}
+<head>
+    {% load static %}
+    {% block title %}- Registration Done{% endblock %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    {% endblock %}
+</head>
+{% block content %}
+<div class="row">
+    <div class="box">
+        <div class="welcome">{{new_user.username}}님 회원가입이 완료되었습니다. </div>
+        <br/>
+        <a href="/"><button type="submit" class="btnLogin">메인으로 가기</button></a>
+    </div>
+</div>
+{% endblock %}
+
+

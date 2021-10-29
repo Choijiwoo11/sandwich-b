@@ -1,0 +1,111 @@
+
+
+fieldset{width:70%; margin:50px auto; padding:20px 25px; box-sizing:border-box;}
+fieldset h3{text-align:center; margin-bottom:10px;}
+legend{display:none;}
+
+div label{font-size:14px; margin:5px;}
+input[type=text],
+input[type=password],
+button{display:block; width:50%; padding:10px; margin-top: 20px; margin-left: 105px; border-radius:5px; box-sizing:border-box;}
+.btnLogin{background: #F15F5F; color:#fff; font-size:15px; border:none;}
+.btnJoin{background: #F15F5F; color:#fff; font-size:15px; border: none;}
+
+#id_email{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 50px;
+    box-sizing: border-box;}
+
+#id_first_name{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 105px;
+    box-sizing: border-box;}
+
+
+#id_last_name{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 105px;
+    box-sizing: border-box;}
+
+
+
+#id_password{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-left: 105px;
+    margin-bottom: 10px;
+    box-sizing: border-box;}
+
+
+
+#id_password2{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-left: 105px;
+    margin-bottom: 20px;
+    box-sizing: border-box;}
+
+
+
+#id_phone{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-left: 105px;
+    margin-bottom: 10px;
+    box-sizing: border-box;}
+
+
+
+#id_birthdate{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-left: 105px;
+    margin-bottom: 10px;
+    box-sizing: border-box;}
+
+#id_username{
+    width: 50%;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-left: 105px;
+    margin-bottom: 10px;
+    box-sizing: border-box;}
+
+#id_usertype{
+   width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+.signup_box{
+margin-left: 20%;
+}
+
+@media screen and (max-width: 768px) {
+        .signup_box{margin-left: 10%;}
+    }
+

@@ -1,0 +1,26 @@
+{% extends 'sandwich/index.html' %}
+<head>
+  {% load static %}
+  {% block title %} -Logout{% endblock %}
+  {% block extrahead %}
+  <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+  {% endblock %}
+</head>
+
+{% block content %}
+<!--<div class="boxx">-->
+<div class="row" style="height: 400px;">
+<!--    <div class="col-md-2"></div>-->
+    <div class="col-md-8 panel panel-default">
+        <img class="ddd" src="/static/img/sandwich_logout.png" width="300px;" style="margin-top: 2%; background: white;"></a>
+        <div class="alert alert-info" style="margin-bottom: 30px; margin-top: 10px;">로그아웃 완료!</div>
+
+        <button type="submit" class="btnLogin"><a href="{% url 'index' %}" style="color: white;">홈으로</a></button>
+<!--        <button type="submit" class="btnLogin" onclick = "location.href = '{% url 'login' %}' ">로그인</button>-->
+    </div>
+
+</div>
+<!--</div>-->
+
+
+{% endblock %}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--    <meta name="viewport" content="user-scalable=no, inital-scale=1.0, maximum-scale=5.0,minimum-scale=1.0, width=device-width"/>-->
+    <title>SANDWICH {% block title %}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'javascript/index.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    {% block extrahead %}
+    {% endblock %}
+
+    <style>
+        *{margin:0; padding: 0;}
+        a{text-decoration: none; color: black;}
+        a:hover{text-decoration: none;}
+        .navbar{background: #FEF2E8; display: block; justify-content: space-between; align-items: center; padding: 8px 12px;}
+        /*.navbar_logo{  margin-left: 10%;}*/
+        .logo{margin-bottom: 0px; margin-left:20%; margin-top: 3%;}
+        .logo_info{text-align: center;  margin-top:10px; font-family :'Nanum Pen Script', 필기체; font-size: 20px;}
+        .navbar_menu{display: flex; list-style: none; padding-left: 0; justify-content: space-between; margin-left:40px; margin-right: 40px; margin-bottom: 10px; }
+        .navbar_menu li{padding: 8px 12px;}
+        .navbar_menu li a:hover{  border-radius: 5px;}
+        .navbar_icons {list-style: none; color: white; padding-left: 0; float: right; color: black;}
+        .navbar_icons i{padding: 8px 12px;}
+        *{font-family: 'IBM Plex Sans KR', sans-serif;}
+        .navbar_toggleBtn{display: none; font-size: 24px; margin-left:10px;} /* position: absolute; right: 30px;*/
+        .logo_info{display: block;
+                    font-family: 'IBM Plex Sans KR', sans-serif;}
+        .sitemap{padding: 8px 12px;}
+        .hammenu{display: none;}
+        .har{margin-top: 0px;}
+
+            @media screen and (max-width: 768px) {
+                .navbar{
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 8px 12px;
+                }
+                .navbar_logo{margin-bottom: 20px;}
+                .logo_info{display: none;
+                            font-family: 'IBM Plex Sans KR', sans-serif;}
+                .hammenu{
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    padding:8px 12px;
+
+                    border-radius: 4px;
+                    list-style: none;
+                    font-size:15px;
+                    border: 2px solid #F5BCA9;
+
+
+                }
+
+                .hammenu li{font-size: 18px;font-weight: bold; width: 80%; text-align: center; margin-bottom: 20px;}
+                .hammenu li:hover{background: #D8D8D8; border-radius: 4px;}
+
+
+                .m1 a:hover{color:#006400;}
+                .m2 a:hover{color:red;}
+                .m3 a:hover{color:#FFD700;}
+                .m4 a:hover{color: darkred;}
+                .m5 a:hover{color:#20B2AA;}
+                .navbar_menu{display: none;}
+
+
+                .navbar_icons i{display: none;}
+                .navbar_icons a{display: none;}
+                .navbar_menu li{width:100%; text-align: center;}
+                .navbar_icons{justify-content: center; width:100%; display: none;}
+                .navbar_toggleBtn{display: block;}
+                .navbar_toggleBtn:hover{color: black;}
+
+                .hammenu.active,
+                .navbar_icons.active{display: flex;}
+                .har{display: none;}
+
+            }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+
+        }
+
+        .menu0 a{font-weight: bold; font-size: 18px;}
+
+        .menu1 a{font-weight: bold; font-size: 18px;}
+        .menu2 a{font-weight: bold; font-size: 18px;}
+        .menu3 a{font-weight: bold; font-size: 18px;}
+        .menu4 a{font-weight: bold; font-size: 18px;}
+
+        .menu0 a:hover{color: #343333;}
+        .menu1 a:hover{color:#F24130;}
+        .menu2 a:hover{color:#FFD700;}
+        .menu3 a:hover{color: #8C633F;}
+        .menu4 a:hover{color: #63BF84;}
+
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          min-width: 300px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+        }
+
+        .dropdown-content a:hover {background-color: #f2e6df; color:red; font-weight: bold;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+        input:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px black;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar_toggleBtn">
+                <i class="fas fa-bars"></i>
+        </a>
+        <div class="navbar_icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user-circle"></i>
+            {% if user.is_authenticated %}
+            <a class="white" style="text-decoration:none; color:black;" href="#"><span class="welcom">{{user.get_username}}님,</span></a>
+            <a class="white" style="text-decoration:none; color:black;" href="{% url 'logout' %}"><span class="logout">로그아웃</span></a>
+            {% else %}
+            <a href="{% url 'login' %}" style="text-decoration: none; color:#000000;">로그인 &nbsp; </a>
+            <a href="{% url 'register' %}" style="text-decoration: none; color:#000000;">회원가입</a>
+            {% endif %}
+        </div>
+
+        <div class="navbar_logo">
+                <a href="{% url 'index' %}"><img class="logo" src="/static/img/logo.png" width="60%";></a>
+        </div>
+        <!--<div class="logo_info">고품격 독립잡지 </div>-->
+        <div class="logo_info">온라인 독립잡지 플랫폼</div>
+        <ul class="hammenu">
+            <br/>
+                <div class="ham_iconsss">
+<!--                    <div style = "width: 30px; height: 30px; padding-top: 10px; background: #e98282;">-->
+
+<!--                    <div class="searchBox" style="width:100%; height:30px; background:white; border-radius: 4px;  margin-top:-21px; ">-->
+
+                    <form id="textbox" style="margin-top:-21px; ">
+                    <input type="text" maxlength=15 style="width: 300px; height: 30px; padding-left: 20px; border:1px solid white; border-radius:20px;margin-bottom: 10px; margin-top: 41px;">
+                    <i class="fas fa-search fa-1x " style="margin-left: -25px;"></i>
+                    </form>
+                    {% if user.is_authenticated %}
+
+                    <div class="right" style="float: right;">
+                        <i class="fas fa-user-circle">&nbsp;</i>
+<!--                        <a class="white" style="text-decoration:none; color:black;" href="#"><span class="welcom">[{{user.get_username}}]</span></a>-->
+                        <a class="white" style="text-decoration:none; color:black;" href="{% url 'logout' %}"><span class="logout">로그아웃</span></a>
+                    {% else %}
+                        <a class="white" style="text-decoration:none; color:black; margin-left:200px;" href="{% url 'register' %}">회원가입 </a>
+                        <a class="white" style="text-decoration:none; color:black;" href="{% url 'login' %}">로그인</a>
+                    {% endif %}
+                    </div>
+                    </div><br/>
+                <li class="m1"><a href="{% url 'magazine' %}">전체 잡지</a></li>
+                <li class="m2"><a href="#">추천 잡지</a></li>
+                <li class="m3"><a href="{% url 'list' %}">구독자 커뮤니케이션</a></li>
+                <li class="m4"><a href="{% url 'inquiry_list' %}">고객 문의</a></li>
+                <li class="m5"><a href="#">구독 신청</a></li>
+                </div>
+        </ul>
+    </nav>
+
+    <div class ="sitemap">
+        <ul class="navbar_menu">
+                <div class= "dropdown">
+                <li class="menu0" ><a href="{% url 'magazine' %}">전체 잡지</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'magazine_food' %}">음식</a>
+                        <a href="{% url 'magazine_trip' %}">여행</a>
+                        <a href="{% url 'magazine_literature' %}">문학</a>
+                        <a href="{% url 'magazine_daily' %}">일상</a>
+                        <a href="{% url 'magazine_sport' %}">스포츠</a>
+                    </div>
+                </li>
+                </div>
+                <li class="menu1"><a href="#">추천 잡지</a></li>
+                <li class="menu2"><a href="{% url 'list' %}">구독자 커뮤니케이션</a></li>
+                <li class="menu3"><a href="{% url 'inquiry_list' %}">고객 문의</a></li>
+                <li class="menu4"><a href="#">구독 신청</a>
+        </ul>
+       <hr class="har">
+   </div>
+
+
+    <script>
+            const toggleBtn = document.querySelector('.navbar_toggleBtn');
+            const menu = document.querySelector('.hammenu');
+            // const icons = document.querySelector('.navbar_icons');
+
+            toggleBtn.addEventListener('click',() => {
+                console.log("클릭했음");
+                menu.classList.toggle('active');
+                // icons.classList.toggle('active');
+            })
+
+    </script>
+{% block content %}
+
+{% endblock %}
+        {% block pagination %}
+        {% endblock %}
+<footer>
+        <div id="footer-box">
+<!--            <div id="company">COMPANY. 샌드위치&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp C/S CENTER</div>-->
+<!--
+            <div id="tel"> Tel. 00.0000.0000 </div>
+            <div id="bn">business no.</div>
+            <div id="mail">mail order license.</div>
+            <div id="pim">personal info manager. </div>
+            <div id="address">address. </div>
+            <div id="info">
+-->
+
+            <div id="copyright">
+                © Hanyang Women's University Smart IT Capstone Project Sandwich
+            </div>
+        </div>
+</footer>
+</body>
+</html>

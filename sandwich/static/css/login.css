@@ -1,0 +1,39 @@
+fieldset{width:70%; margin-left:15%; margin-top: 5%; padding:20px 25px; box-sizing:border-box; margin-bottom: 5%;}
+fieldset h2{text-align:center; margin-bottom:20px;}
+legend{display:none; }
+.login_box{
+margin-left: 30%;
+}
+div label{font-size:14px; }
+input[type=text],
+input[type=password],
+button{display:block; width:40%; padding:10px; margin-left: 70px; margin-bottom:10px;/*margin:5px 0;*/ border-radius:5px; box-sizing:border-box;  }
+.btnLogin{background: #F15F5F; color:#fff; font-size:15px; border:none;}
+.btnJoin{background: #F15F5F; color:#fff; font-size:15px; border: none;}
+p{
+/*margin-right: 20px;*/
+    margin-top: 20px;
+}
+#id_username{
+width: 40%;
+    padding: 10px;
+    margin-left:70px;
+    margin-top: -25px;
+    /*margin: 5px 0;*/
+
+    border-radius: 5px;
+    box-sizing: border-box;}
+
+#id_password{
+width:40%;
+    padding: 10px;
+    margin-left:70px;
+    margin-top: -20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+        .login_box{margin-left: 10%;}
+    }

@@ -1,0 +1,36 @@
+{% extends 'sandwich/index.html' %}
+
+<head>
+    {% load static %}
+    {% block title %}Magazine_daily{% endblock %}
+    {% block extrahead %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>-->
+    {% endblock %}
+</head>
+
+{% block content %}
+<br/>
+<div class="todays-sandwich"><strong>일상</strong></div>
+<div class = "btn-group">
+<!--    <a href="{% url 'magazine_create'%}" class="btn btn-info" style="background:#F15F5F; color:#fff; border: none; margin-right:10px;">잡지추가</a>-->
+</div><br/><hr>
+<!--<div class="todays-sandwich"><strong>오늘의 잡지추천</strong></div> <br/><hr>-->
+<div class="box1">
+
+{% for list in magazine_d %}
+    <div class="main_img"><a href="{% url 'magazine_detail' pk=list.id %}"><img src="{{list.image.url}}" style="width:200px;"></a>
+        <p><span style="color: #63BF84;; font-weight: bold;"> [ {{list.cid.name}}  ]</span>&nbsp {{list.title}}</p>
+    </div>
+
+    {% endfor %}
+        </div>
+
+</div>
+
+
+{% endblock %}
